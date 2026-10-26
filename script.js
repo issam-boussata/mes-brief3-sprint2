@@ -18,7 +18,7 @@ function Afficher(produits) {
   if (produits.length != 0) {
     const etat_vide = document.getElementById("etat-vide");
     etat_vide.classList.toggle("no_active");
-
+    liste_produits.innerHTML = "" ;
     produits.forEach(produit => {
 
 
@@ -84,7 +84,7 @@ submit_buton.addEventListener("click" , (event)=> {
 function Supprimer(id) {
   if (confirm("voulez vous supprimer ce produit")) {
     const index_supprimer = produits.findIndex(produit => produit.id == id) ;
-    produits.slice(index_supprimer , 1) ;
+    produits.splice(index_supprimer , 1) ;
 
     alert("ce produit est supprimer avec sacces") ;
     Afficher(produits) ;
