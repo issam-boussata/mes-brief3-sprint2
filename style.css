@@ -151,3 +151,7 @@ button:focus-visible {
     padding: 20px;
   }
 }
+
+.no_active {
+  display: none;
+}
