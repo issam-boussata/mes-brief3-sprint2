@@ -10,3 +10,8 @@ let prochainId = 3;
 // 2. Gérer l’ajout depuis le formulaire.
 // 3. Gérer le retrait du produit cliqué.
 // 4. Bonus : compteur, état vide et total.
+
+
+// const 
+function Afficher(){
+}
