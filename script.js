@@ -36,6 +36,9 @@ function Afficher(produits) {
       btn_supprimer.setAttribute("type", "button");
       btn_supprimer.classList.add("supprimer");
       btn_supprimer.textContent = "Retirer";
+      btn_supprimer.addEventListener("click" , ()=>{
+        Supprimer(produit.id)
+      })
 
       produit_li.append(div_nom_prix, btn_supprimer);
 
@@ -53,11 +56,37 @@ function Afficher(produits) {
 }
 Afficher(produits) ;
 
-function Ajouter(){
+function Ajouter(event){
+  event.preventDefault() ;
+
+
   const input_nom = document.getElementById("nom") ;
   const input_prix = document.getElementById("prix") ;
 
   const produit = {
-    
+    id : produits.length + 1 ,
+    nom : input_nom.value ,
+    prix : input_prix.value 
+  }
+
+  produits.push(produit) ;
+
+  Afficher(produits)
+}
+
+const submit_buton = document.getElementById("submit_buton") ;
+submit_buton.addEventListener("click" , (event)=> {
+  
+  Ajouter(event) ;
+})
+
+
+function Supprimer(id) {
+  if (confirm("voulez vous supprimer ce produit")) {
+    const index_supprimer = produits.findIndex(produit => produit.id == id) ;
+    produits.slice(index_supprimer , 1) ;
+
+    alert("ce produit est supprimer avec sacces") ;
+    Afficher(produits) ;
   }
 }
