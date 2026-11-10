@@ -122,6 +122,7 @@ function afficherCampus() {
   liste_campus.innerHTML = ""
   document.getElementById("champ-email").setAttribute("hidden", "");
   document.getElementById("champ-campus").removeAttribute("hidden");
+  document.getElementById("champ-campus").removeAttribute("disabled");
 
   config.campus.forEach(campus => {
 
@@ -145,6 +146,7 @@ function afficherCampus() {
 }
 function ValiderCampus(campus) {
   if (!campus) {
+
     document.getElementById("erreur-campus").textContent = "chisir un campus";
   } else {
     selectedConfig.campus = campus;
